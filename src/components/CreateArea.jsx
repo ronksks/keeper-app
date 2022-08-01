@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
+
 
 function CreateArea(props) {
+  const [hidden, setHidden] = useState(true);
   const [note, setNote] = useState({
     title: "",
     content: ""
   });
+
+  function handleContentClick() {
+    setHidden(!hidden);
+  }
 
   function handleChange(e) {
     // deconstructing the e.target into 2 consts
@@ -22,6 +29,7 @@ function CreateArea(props) {
     });
   }
 
+
   function submitNote(e) {
     //sending the note to the onAdd funct in app.jsx
     //trough the props
@@ -36,22 +44,34 @@ function CreateArea(props) {
   return (
     <div>
       <form className="create-note">
-        <input
+        {hidden ? <input
           onChange={handleChange}
           name="title"
           value={note.title}
           placeholder="Title"
-        />
+        /> : null}
+        
+        
         <textarea
+          onClick={handleContentClick}
+          // onClick={() => {
+          //   console.log("textareac Clicked")
+          //   sethidden(s => !s)}}
+
           onChange={handleChange}
           name="content"
           value={note.content}
           placeholder="Take a note..."
-          rows="3"
+        //if title input is hidden than textarea rows set to 1 otherwise its 3
+        rows={!hidden?1:3}
         />
-        <Fab onClick={submitNote}>
-        <AddCircleIcon />
-        </Fab>{" "}
+        <Zoom in={hidden}>
+          <Fab
+            onClick={submitNote}>
+            <AddCircleIcon />
+          </Fab>
+        </Zoom>
+
       </form>
     </div>
   );
