@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
+import Fade from '@mui/material/Fade';
+
 
 
 function CreateArea(props) {
@@ -12,6 +14,7 @@ function CreateArea(props) {
   });
 
   function handleContentClick() {
+
     if (note.title === "") {
       setHidden(!hidden);
     }
@@ -44,15 +47,15 @@ function CreateArea(props) {
   }
 
   return (
+<Fade in={true}>
     <div>
-      <form className="create-note">
+      <form className="create-note" >
         {hidden ? <input
           onChange={handleChange}
           name="title"
           value={note.title}
           placeholder="Title"
         /> : null}
-
 
         <textarea
           onClick={handleContentClick}
@@ -76,6 +79,7 @@ function CreateArea(props) {
 
       </form>
     </div>
+        </Fade>
   );
 }
 
