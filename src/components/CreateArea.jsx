@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import Fab from '@mui/material/Fab';
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -48,9 +49,9 @@ function CreateArea(props) {
           placeholder="Take a note..."
           rows="3"
         />
-        <button onClick={submitNote}>
+        <Fab onClick={submitNote}>
         <AddCircleIcon />
-        </button>{" "}
+        </Fab>{" "}
       </form>
     </div>
   );
