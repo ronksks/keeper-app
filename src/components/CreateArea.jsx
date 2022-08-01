@@ -5,14 +5,16 @@ import Zoom from '@mui/material/Zoom';
 
 
 function CreateArea(props) {
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const [note, setNote] = useState({
     title: "",
     content: ""
   });
 
   function handleContentClick() {
-    setHidden(!hidden);
+    if (note.title === "") {
+      setHidden(!hidden);
+    }
   }
 
   function handleChange(e) {
@@ -50,8 +52,8 @@ function CreateArea(props) {
           value={note.title}
           placeholder="Title"
         /> : null}
-        
-        
+
+
         <textarea
           onClick={handleContentClick}
           // onClick={() => {
@@ -62,8 +64,8 @@ function CreateArea(props) {
           name="content"
           value={note.content}
           placeholder="Take a note..."
-        //if title input is hidden than textarea rows set to 1 otherwise its 3
-        rows={!hidden?1:3}
+          //if title input is hidden than textarea rows set to 1 otherwise its 3
+          rows={!hidden ? 1 : 3}
         />
         <Zoom in={hidden}>
           <Fab
