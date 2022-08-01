@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
-/// git  test
+
 function App() {
   const [notes, setNotes] = useState([]);
 
