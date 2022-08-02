@@ -1,18 +1,18 @@
 {
   "name": "keeper-part-3-starting",
   "version": "1.0.0",
-  "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
-    "@mui/material": "^5.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.93",
+    "@mui/material": "^5.9.3",
+    "mongoose": "^6.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^2.1.3"
   },
   "devDependencies": {
     "typescript": "4.7.4"
@@ -28,5 +28,16 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronksks/keeper-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronksks/keeper-app/issues"
+  },
+  "homepage": "https://github.com/ronksks/keeper-app#readme",
+  "description": ""
 }
