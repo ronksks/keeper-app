@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -7,7 +7,18 @@ import CreateArea from "./CreateArea";
 
 function App() {
   const [notes, setNotes] = useState([]);
-
+  ////////////////testing area for backend
+  const [backendData, setBackendData] = useState([{}])
+  useEffect(()=>{
+    fetch("/api").then(
+      response=>response.json()
+    ).then(
+      data=>{
+        setBackendData(data)
+      }
+    )
+  },[])
+  //////////////////////////////////
   function addNote(newNote) {
     setNotes((prevNotes) => {
       //we return all the prevNotes, and add the newNote

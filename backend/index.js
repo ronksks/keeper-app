@@ -17,10 +17,13 @@ const noteSchema = new mongoose.Schema({title: String,
 
 const Note = mongoose.model("Note", noteSchema);
 
-app.get("/", function(req,res){
-    res.send("Its working");
+app.get("/api", (req,res)=>{
+    res.json({"users": ["user1", "user2", "user3"]});
+    // res.send("Its working");
 })
 
-app.listen(4000, function() {
+
+
+app.listen(4000, ()=> {
     console.log("Server started on port 4000");
   });

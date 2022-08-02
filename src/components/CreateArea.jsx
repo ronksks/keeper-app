@@ -14,6 +14,9 @@ function CreateArea(props) {
   });
 
   function handleContentClick() {
+    // fetch("http://localhost:3000/")
+    
+
 
     if (note.title === "") {
       setHidden(!hidden);
