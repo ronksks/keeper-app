@@ -9,15 +9,15 @@ function App() {
   const [notes, setNotes] = useState([]);
   ////////////////testing area for backend
   const [backendData, setBackendData] = useState([{}])
-  useEffect(()=>{
-    fetch("/api").then(
-      response=>response.json()
-    ).then(
-      data=>{
-        setBackendData(data)
-      }
-    )
-  },[])
+  // useEffect(()=>{
+  //   fetch("/api").then(
+  //     response=>response.json()
+  //   ).then(
+  //     data=>{
+  //       setBackendData(data)
+  //     }
+  //   )
+  // },[])
   //////////////////////////////////
   function addNote(newNote) {
     setNotes((prevNotes) => {
