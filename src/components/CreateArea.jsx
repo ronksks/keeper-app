@@ -52,7 +52,7 @@ function CreateArea(props) {
   return (
 <Fade in={true}>
     <div>
-      <form className="create-note" >
+      <form className="create-note" action="http://localhost:4000/" mathod="POST" >
         {hidden ? <input
           onChange={handleChange}
           name="title"
