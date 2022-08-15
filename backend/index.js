@@ -1,33 +1,48 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-
+const NoteModel = require("./models/Note");
+const cors = require("cors");
+const { Note } = require("@mui/icons-material");
 const app = express();
+app.use(express.json());
+app.use(express.static("public"));
+app.use(cors());
+
 
 // const [notes, setNotes] = useState([]);
-const notes =[];
-const note ={
-  title:"",
-  content:""
-};
+// const notes =[];
+// const note ={
+//   title:"",
+//   content:""
+// };
 
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/kepperDB");
+// mongoose.connect("mongodb://localhost:27017/keeper-appDB");
+mongoose.connect(
+  "mongodb+srv://admin-ronksks:Test123@cluster0.80wja.mongodb.net/keeper-appDB",
+  {
+    useNewUrlParser: true,
+  }
+);
 
-const noteSchema = new mongoose.Schema({title: String,
-    content: String});
 
-const Note = mongoose.model("Note", noteSchema);
-
-app.get("/api", (req,res)=>{
+////// works but not retriveing data
+app.get("/api", async(req,res)=>{
+  NoteModel.find({},(err, result)=>{
+    if(err){
+      res.send(err);
+    }
+    res.send(result);
+  });
     // res.json({"users": ["user1", "user2", "user3"]});
-    res.send("Its working");
-})
+
+    // res.send("Its working");
+});
 
 
 
